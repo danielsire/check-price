@@ -1,0 +1,66 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# check-price
+
+To check material price.
+
+## Check-Price Collection [/check-price]
+
+### Checking Price [POST]
+
+Mock Check-Price
+
++ Request (application/json)
+
+        {
+           "json":{
+              "billTo":"0000517833",
+              "shipTo":"0000517833",
+              "distributionChannel":"30",
+              "division":"40",
+              "salesOrganization":"SJK1",
+              "validateSalesOrganization":"N",
+              "currency":"BRL",
+              "documentType":"ZOSO",
+              "date":"2018-07-11",
+              "detDocSchema":"Z",
+              "detCustomerSchema":"1",
+              "salesDocumentCategory":"C",
+              "language":"E",
+              "item":[
+                 {
+                    "itemNumber":"1",
+                    "materialCode":"000000000008564924",
+                    "plant":"SJK1",
+                    "quantity":"1",
+                    "totalAmount":14636.46
+                 },
+                 {
+                    "itemNumber":"1",
+                    "materialCode":"000000000008564924",
+                    "plant":"SJK1",
+                    "quantity":"1",
+                    "totalAmount":96.36
+                 }
+              ]
+           }
+        }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+               "totalAmount":"177450.00",
+               "taxAmount":5488.14,
+               "grandTotalAmount":182938.14,
+               "item":[
+                  {
+                     "itemNumber":"000001",
+                     "totalAmount":"177450.00",
+                     "taxAmount":5488.14,
+                     "grandTotalAmount":182938.14
+                  }
+               ]
+            }
